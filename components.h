@@ -147,24 +147,7 @@ void calculateGamma(Matrix &m)
 
 void calculateL(Matrix &l)
 {
-    zeroes(l, 4, 3);
-
-    l.at(0).at(0) = 1;
-    l.at(0).at(1) = 1;
-    l.at(0).at(2) = 1;
-    l.at(0).at(3) = 1;
-    l.at(1).at(0) = 1;
-    l.at(1).at(1) = 1;
-    l.at(1).at(2) = 1;
-    l.at(1).at(3) = 1;
-    l.at(2).at(0) = 1;
-    l.at(2).at(1) = 1;
-    l.at(2).at(2) = 1;
-    l.at(2).at(3) = 1;
-    l.at(3).at(0) = 1;
-    l.at(3).at(1) = 1;
-    l.at(3).at(2) = 1;
-    l.at(3).at(3) = 1;
+    ones(l, 4, 3);
 }
 
 float calculateLocalJ(int i, mesh m)
@@ -210,7 +193,7 @@ Matrix createLocalM(int e, mesh &m)
 
     if (Determinant == 0)
     {
-        cout << "\n!---CATASTROPHIC FAILURE---!\n";
+        cout << "\n!---CATASTROPHIC FAILURE: DET = 0 ---!\n";
         exit(EXIT_FAILURE);
     }
 
@@ -251,7 +234,7 @@ Matrix createLocalM(int e, mesh &m)
     Matrix M;
     zeroes(M, 16);
     ubicarSubMatriz(M, 0, 11, 0, 11, sumMatrix(matrixA, matrixK, 12, 12));
-    ubicarSubMatriz(M, 0, 11, 12, 15, matrixG);
+    ubicarSubMatriz(M, 12, 15, 0, 11, matrixG);
     ubicarSubMatriz(M, 12, 15, 12, 15, matrixD);
 
     return M;
@@ -280,7 +263,7 @@ Vector createLocalb(int e, mesh &m)
 
     if (J == 0)
     {
-        cout << "\n!---CATASTROPHIC FAILURE---!\n";
+        cout << "\n!---CATASTROPHIC FAILURE: J = 0---!\n";
         exit(EXIT_FAILURE);
     }
 

@@ -1,5 +1,5 @@
-2 2.5 1.5
-6 3 1 1 1 1
+2 2.5 2.5
+8 6 1 1 1 1
 
 Coordinates
 1            5            5            5
@@ -26,7 +26,7 @@ Dirichlet_U
 EndDirichlet
 
 Dirichlet_V
-6           5
+3           5
 EndDirichlet
 
 Dirichlet_W
