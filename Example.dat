@@ -43,5 +43,8 @@ Dirichlet_W
 EndDirichlet
 
 Dirichlet_P
+3           6
 5           6
+7           6
+8           6
 EndDirichlet
